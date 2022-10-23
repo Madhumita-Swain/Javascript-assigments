@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+
+
+</head>
+<body>
+    <div>
+        <input type="text" id="demo" value="">
+
+        <button onclick="insertElement()">Insert Element</button>
+        <button onclick="printElement()">Show Elements</button><br><br>
+
+       
+        <button onclick="delElement()">Delete Element </button>
+        <table id="tbl" border="1">
+            <thead >
+                <th >Stack</th>
+            </thead>
+            
+        </table>
+    </div>
+  
+ <script>    
+class Stack {
+    constructor() {
+        this.items = [];
+    }
+    
+    // add element to the stack
+    add(element) {
+        return this.items.push(element);
+    }
+    
+    // remove element from the stack
+    remove() {
+        if(this.items.length > 0) {
+            return this.items.pop();
+        }
+    }
+    // print(){
+    //     for(let i=0;i<=this.items.length;i++){
+    //         <table>
+    //         <tr>document.write(this.items[i])</tr>
+    //         </table>
+    //     }
+    // }
+    
+    
+    
+}
+
+let stack = new Stack();
+function insertElement() {
+            let num = document.getElementById('demo').value;
+            stack.add(num);
+            console.log(`${num} inserted successfully`);
+        }
+
+        function printElement() {
+            var tr=document.createElement('tr');
+            tr.innerHTML=stack.items;
+            document.getElementById("tbl").appendChild(tr);
+        //  stack.append(document.write(stack.items))
+        
+        }
+
+        function delElement() {
+            stack.remove();
+            printElement();
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>
